@@ -1,0 +1,19 @@
+# create a basic docker compose file with 2 services that uses Dockerfile.request and Dockerfile.reply
+version: "2"
+services:
+  request:
+    build:
+      context: .
+      dockerfile: Dockerfile.request
+    command: bash
+    tty: true
+    volumes:
+      - ./:/app
+  reply:
+    build:
+      context: .
+      dockerfile: Dockerfile.reply
+    command: bash
+    tty: true
+    volumes:
+      - ./:/app
