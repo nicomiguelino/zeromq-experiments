@@ -1,0 +1,18 @@
+version: "2"
+services:
+  viewer:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.viewer
+    tty: true
+    volumes:
+      - ./viewer:/app/viewer
+      - ./start_viewer.sh:/app/start_viewer.sh
+  wifi-connect:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.wifi-connect
+    tty: true
+    volumes:
+      - ./wifi-connect:/app/wifi-connect
+      - ./start_wifi_connect.sh:/app/start_wifi_connect.sh
