@@ -1,0 +1,16 @@
+version: "2"
+services:
+  zmq-ue:
+    build:
+      context: .
+      dockerfile: Dockerfile.ue
+    depends_on:
+      - zmq-enb
+    volumes:
+      - ./ue:/app/ue
+  zmq-enb:
+    build:
+      context: .
+      dockerfile: Dockerfile.enb
+    volumes:
+      - ./enb:/app/enb
